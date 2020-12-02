@@ -21,9 +21,8 @@ let myApp = new Vue({
         })
         .then((result)=> {
 
-          this.movies = (result.data.results)
+          this.movies = result.data.results
           console.log(this.movies)
-
 
         });
     }
