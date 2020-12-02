@@ -23,6 +23,7 @@
         <div id="root">
 
               <input v-on:keydown.enter="getResult()" v-model="query" type="text" name="" value="">
+              <button @Click="getResult()" type="button" name="button">Cerca</button>
               <ul class="movies-container container">
 
                       <li class="movie" v-for="movie in movies">
