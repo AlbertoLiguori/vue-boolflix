@@ -9,16 +9,6 @@ let myApp = new Vue({
     query:"dragonball",
   },
 
-  // computed:{
-  //   filteredByGenre: function() {
-  //     searchInput = this.selected;
-  //     return this.dischi.filter(function(element){
-  //       return element.genre.toLowerCase().includes(searchInput.toLowerCase())
-  //     });
-  //
-  //   },
-  // },
-
   methods:{
 
     getResult:function(){
