@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>boolflix</title>
+
+        <!-- LINK TO VUE -->
+        <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
+
+        <!-- LINK TO AXIOSS  -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
+
+        <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <img src="https://assets.brand.microsites.netflix.io/assets/1ed15bca-b389-11e7-9274-06c476b5c346_cm_800w.png?v=53" alt="logo" />
+            </div>
+        </header>
+
+        <div id="root">
+
+              <input v-on:keydown.enter="getResult()" v-model="query" type="text" name="" value="">
+              <ul class="movies-container container">
+
+                      <li class="movie" v-for="movie in movies">
+                            <!-- <img :src="movie.poster_path" alt=""> -->
+                            <h3>{{movie.title}}</h3>
+                            <h3>{{movie.original_title}}</h3>
+                            <span class="author">{{movie.original_language}}</span>
+                            <span class="year">{{movie.vote_average}}</span>
+                      </li>
+
+              </ul>
+
+        </div>
+
+
+        <script src="main.js" charset="utf-8"></script>
+    </body>
+</html>
