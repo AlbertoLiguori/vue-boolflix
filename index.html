@@ -13,7 +13,11 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.20.0/axios.min.js"></script>
 
         <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
+        <!-- LINK TO MY CSS -->
         <link rel="stylesheet" href="style.css">
+
+        <!-- LINK TO DATA.JS -->
+        <script src="data.js" charset="utf-8"></script>
     </head>
     <body>
         <header>
@@ -31,9 +35,6 @@
                             <!-- <img :src="movie.poster_path" alt=""> -->
                             <h3>{{movie.title}}</h3>
                             <h3>{{movie.original_title}}</h3>
-
-                            <div class="">
-
 
                             <div class="stars-container">
 
@@ -59,11 +60,8 @@
 
                             </div>
 
-                            </div>
-
-
                             <span class="year">{{movie.vote_average}}</span>
-                            <span>{{movie.original_language}}</span>
+                            <span >{{getFlag(movie.original_language)}}</span>
                       </li>
 
               </ul>

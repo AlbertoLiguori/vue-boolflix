@@ -36,8 +36,29 @@ let myApp = new Vue({
 
     starWidth:function(num){
       return {width: (num*10) +'%'};
-    }
+    },
+
+    getFlag:function(langAbb){
+      let langObj= languageArray.find(function(element){
+        return element.abbreviation.includes(langAbb)
+      });
+      if (langObj){
+        return langObj.flag
+      }else{
+        return "🏳️‍🌈"
+      }
+    },
+
 
  },
 
 });
+//
+//
+// filteredArray: function() {
+//   searchInput = this.searchEl;
+//   return this.contactsArray.filter(function(element){
+//     return element.name.toLowerCase().includes(searchInput.toLowerCase())
+//   });
+
+//},
