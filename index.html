@@ -28,11 +28,13 @@
         <div id="root">
 
               <input v-on:keydown.enter="getResult()" v-model="query" type="text" name="" value="">
-              <button @Click="getResult()" type="button" name="button">Cerca</button>
+              <button @Click="getResult()"type="button" name="button">Cerca</button>
+
+              <h1>MOVIES</h1>
               <ul class="movies-container container">
 
                       <li class="movie" v-for="movie in movies">
-                            <!-- <img :src="movie.poster_path" alt=""> -->
+              
                             <h3>{{movie.title}}</h3>
                             <h3>{{movie.original_title}}</h3>
 
@@ -61,7 +63,45 @@
                             </div>
 
                             <span class="year">{{movie.vote_average}}</span>
-                            <span >{{getFlag(movie.original_language)}}</span>
+                            <span >{{getFlag(movie.original_language)}}{{movie.original_language}}</span>
+                      </li>
+
+              </ul>
+
+              <h1>SERIES</h1>
+              <ul class="movies-container container">
+
+                      <li class="movie" v-for="serie in series">
+
+                            <h3>{{serie.name}}</h3>
+                            <h3>{{serie.original_name}}</h3>
+
+                            <div class="stars-container">
+
+                                  <ul class= "star-under">
+
+                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+
+                                  </ul>
+
+                                  <ul class="star-over" :style="starWidth(serie.vote_average)">
+
+                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+
+                                  </ul>
+
+                            </div>
+
+                            <span class="year">{{serie.vote_average}}</span>
+                            <span >{{getFlag(serie.original_language)}}{{serie.original_language}}</span>
                       </li>
 
               </ul>

@@ -6,15 +6,9 @@ let myApp = new Vue({
   data:{
     API_KEY:"112af51c0e7271e4d4b8c857cffac064",
     movies:[],
+    series:[],
     query:"dragonball",
   },
-
-  // computed:{
-  //   starWidth:function(num){
-  //     return {width: num +'%'};
-  //   }
-  // },
-
 
   methods:{
 
@@ -30,6 +24,19 @@ let myApp = new Vue({
 
           this.movies = result.data.results
           console.log(this.movies)
+
+        });
+
+        axios.get("https://api.themoviedb.org/3/search/tv",{
+          params:{
+            'api_key':this.API_KEY,
+            'query':this.query
+          }
+        })
+        .then((result)=> {
+
+          this.series = result.data.results
+          console.log(this.series)
 
         });
     },
@@ -53,12 +60,3 @@ let myApp = new Vue({
  },
 
 });
-//
-//
-// filteredArray: function() {
-//   searchInput = this.searchEl;
-//   return this.contactsArray.filter(function(element){
-//     return element.name.toLowerCase().includes(searchInput.toLowerCase())
-//   });
-
-//},

@@ -45,6 +45,21 @@ var languageArray=[
     flag: "🇨🇳",
     abbreviation:"zh"
   },
+  {
+    language:"polish",
+    flag: "🇵🇱",
+    abbreviation:"pl"
+  },
+  {
+    language:"deutsch",
+    flag: "🇩🇪",
+    abbreviation:"de"
+  },
+  {
+    language:"nepal",
+    flag: "🇳🇵",
+    abbreviation:"kn"
+  },
 
 
 
