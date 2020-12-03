@@ -41,6 +41,12 @@ let myApp = new Vue({
         });
     },
 
+    getImage:function(blabla){
+      return "https://image.tmdb.org/t/p/w185/" + blabla
+    },
+
+
+
     starWidth:function(num){
       return {width: (num*10) +'%'};
     },

@@ -34,7 +34,8 @@
               <ul class="movies-container container">
 
                       <li class="movie" v-for="movie in movies">
-              
+
+                            <img :src="getImage(movie.poster_path)" alt="">
                             <h3>{{movie.title}}</h3>
                             <h3>{{movie.original_title}}</h3>
 
@@ -73,6 +74,7 @@
 
                       <li class="movie" v-for="serie in series">
 
+                            <img :src="getImage(serie.poster_path)" alt="">
                             <h3>{{serie.name}}</h3>
                             <h3>{{serie.original_name}}</h3>
 
