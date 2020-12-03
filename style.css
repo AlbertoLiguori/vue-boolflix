@@ -21,7 +21,7 @@ header {
     height: 70px;
     background: rgb(46, 58, 70);
 }
-header img {
+/* header img {
     height: 50px;
     margin-top: 10px;
 }
@@ -65,4 +65,26 @@ header img {
 
 .movie span.year {
     color: grey;
+} */
+
+
+/* STARS */
+.stars-container{
+  position:relative;
+  color:white;
+  width:80px;
+}
+
+.star-under, .star-over{
+  list-style: none;
+  display:flex;
+}
+
+.star-over{
+  position:absolute;
+  top:0;
+  left:0;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  /* width:65%; */
 }

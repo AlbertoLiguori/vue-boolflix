@@ -9,6 +9,13 @@ let myApp = new Vue({
     query:"dragonball",
   },
 
+  // computed:{
+  //   starWidth:function(num){
+  //     return {width: num +'%'};
+  //   }
+  // },
+
+
   methods:{
 
     getResult:function(){
@@ -25,6 +32,10 @@ let myApp = new Vue({
           console.log(this.movies)
 
         });
+    },
+
+    starWidth:function(num){
+      return {width: (num*10) +'%'};
     }
 
  },

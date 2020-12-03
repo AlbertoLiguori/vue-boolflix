@@ -2,7 +2,9 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>boolflix</title>
+        <title>boolflix official</title>
+        <!-- LINK TO FONTAWESOME -->
+        <script src="https://use.fontawesome.com/200c567139.js"></script>
 
         <!-- LINK TO VUE -->
         <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12"></script>
@@ -16,7 +18,6 @@
     <body>
         <header>
             <div class="container">
-                <img src="https://assets.brand.microsites.netflix.io/assets/1ed15bca-b389-11e7-9274-06c476b5c346_cm_800w.png?v=53" alt="logo" />
             </div>
         </header>
 
@@ -30,8 +31,39 @@
                             <!-- <img :src="movie.poster_path" alt=""> -->
                             <h3>{{movie.title}}</h3>
                             <h3>{{movie.original_title}}</h3>
-                            <span class="author">{{movie.original_language}}</span>
+
+                            <div class="">
+
+
+                            <div class="stars-container">
+
+                                  <ul class= "star-under">
+
+                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+
+                                  </ul>
+
+                                  <ul class="star-over" :style="starWidth(movie.vote_average)">
+
+                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+
+                                  </ul>
+
+                            </div>
+
+                            </div>
+
+
                             <span class="year">{{movie.vote_average}}</span>
+                            <span>{{movie.original_language}}</span>
                       </li>
 
               </ul>
