@@ -17,7 +17,8 @@ let myApp = new Vue({
         axios.get("https://api.themoviedb.org/3/search/movie",{
           params:{
             'api_key':this.API_KEY,
-            'query':this.query
+            'query':this.query,
+            // 'page':20,
           }
         })
         .then((result)=> {
@@ -42,7 +43,7 @@ let myApp = new Vue({
     },
 
     getImage:function(blabla){
-      return "https://image.tmdb.org/t/p/w185/" + blabla
+      return "https://image.tmdb.org/t/p/w342/" + blabla
     },
 
 

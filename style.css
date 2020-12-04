@@ -5,74 +5,116 @@
     box-sizing: border-box;
 }
 
+h1{
+  text-align: center;
+  color:white;
+}
+
 body {
     background: #1E2D3B;
     min-height: 100vh;
 }
 
+span{
+  text-align: center;
+}
+/* TOOLS */
 .container {
-    width: 1070px;
-    height: 100%;
-    margin: 0 auto;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
+.row{
+  width:100%;
+}
+
+.row::after{
+  content:"";
+  display: table;
+  clear:both;
+}
+
+.hide{
+  display:none;
+}
+
+/* HEADER */
 header {
     width: 100%;
-    height: 70px;
-    background: rgb(46, 58, 70);
-}
-/* header img {
-    height: 50px;
-    margin-top: 10px;
+    background: #001533;
 }
 
-.movies-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    padding: 100px 0;
+.nav-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.movie {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction: column;
-    flex-basis: 200px;
-    padding: 20px;
-    margin: 10px 20px;
-    height: 360px;
-    background: rgb(46, 58, 70);
-    text-align: center;
+.logo{
+  margin:10px;
+  height:80px;
+  border-radius: 10px;
 }
 
-.movie img {
-    max-width: 100%;
+.poster-container{
+
+  background-color: black;
+  height:500px;
+  width:342px;
+  border:1px solid white;
+  overflow: hidden;
+  /* position: relative; */
 }
 
-.movie h3 {
-    margin: 20px 0;
-    color: white;
-    font-size: 22px;
-    text-transform: uppercase;
+.info-container{
+  padding:20px;
+  display:none;
+  flex-direction: column;
+  align-content:space-between;
+  position:absolute;
+  top:0;
+  left:0;
+  height: 500px;
+  width:342px;
+
 }
 
-.movie span.author {
-    color: grey;
-    font-size: 20px;
+li:hover .info-container{
+  display:flex;
+
 }
 
-.movie span.year {
-    color: grey;
-} */
+li:hover .poster-container{
+  opacity:0.5;
+}
 
+.subst-img{
+  text-align: center;
+}
 
+.movies-container{
+  display:flex;
+  overflow-x: scroll;
+  justify-content: space-between;
+  color:white;
+  list-style: none;
+}
+
+.movie{
+  margin:20px;
+  /* display: flex; */
+  /* flex-direction: column; */
+  /* justify-content: center; */
+  /* text-align: center; */
+  position:relative;
+}
 /* STARS */
 .stars-container{
   position:relative;
   color:white;
   width:80px;
+  margin:auto;
 }
 
 .star-under, .star-over{

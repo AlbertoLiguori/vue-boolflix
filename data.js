@@ -32,7 +32,7 @@ var languageArray=[
   },
   {
     language:"japanese",
-    flag: "🇯🇵 Flag: Japan",
+    flag: "🇯🇵",
     abbreviation:"ja"
   },
   {

@@ -18,59 +18,150 @@
 
         <!-- LINK TO DATA.JS -->
         <script src="data.js" charset="utf-8"></script>
+
     </head>
+
     <body>
-        <header>
-            <div class="container">
-            </div>
+
+    <div id="root">
+
+        <header class="row">
+
+            <nav class="nav-container container">
+
+                  <div class="logo-container" >
+
+                        <img class="logo"src="boolflix-logo.png" alt="">
+
+                  </div>
+
+                  <div class="input-container">
+
+                        <input v-on:keydown.enter="getResult()" v-model="query" type="text" name="" value="">
+                        <button @Click="getResult()"type="button" name="button">Cerca</button>
+
+                  </div>
+
+          </nav>
+
         </header>
 
-        <div id="root">
+            <section class="container">
 
-              <input v-on:keydown.enter="getResult()" v-model="query" type="text" name="" value="">
-              <button @Click="getResult()"type="button" name="button">Cerca</button>
+                      <div class="row">
 
-              <h1>MOVIES</h1>
-              <ul class="movies-container container">
+                            <h1>MOVIES</h1>
 
-                      <li class="movie" v-for="movie in movies">
+                            <ul class="movies-container row">
 
-                            <img :src="getImage(movie.poster_path)" alt="">
-                            <h3>{{movie.title}}</h3>
-                            <h3>{{movie.original_title}}</h3>
+                                  <li class="movie" v-for="movie in movies">
 
-                            <div class="stars-container">
+                                        <div class="poster-container">
 
-                                  <ul class= "star-under">
+                                            <img v-if="movie.poster_path" :src="getImage(movie.poster_path)" alt="">
 
-                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                            <div  v-else class="subst-img"> <h3>{{movie.title}}</h3> <i class="fa fa-picture-o" aria-hidden="true"></i></div>
 
-                                  </ul>
 
-                                  <ul class="star-over" :style="starWidth(movie.vote_average)">
+                                        </div>
 
-                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                        <div class="info-container">
 
-                                  </ul>
+                                              <h3>{{movie.title}}</h3>
+                                              <h5>Original title: {{movie.original_title}}</h5>
 
-                            </div>
+                                              <p> Overview: {{movie.overview}}</p>
 
-                            <span class="year">{{movie.vote_average}}</span>
-                            <span >{{getFlag(movie.original_language)}}{{movie.original_language}}</span>
-                      </li>
+                                              <span>Rating:</span>
 
-              </ul>
+                                              <div class="stars-container">
 
-              <h1>SERIES</h1>
-              <ul class="movies-container container">
+                                                    <ul class= "star-under">
+
+                                                          <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                                          <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                                          <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                                          <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                                          <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+
+                                                    </ul>
+
+                                                    <ul class="star-over" :style="starWidth(movie.vote_average)">
+
+                                                          <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                                          <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                                          <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                                          <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                                          <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+
+                                                    </ul>
+
+                                              </div>
+
+                                              <span >{{getFlag(movie.original_language)}}</span>
+
+                                        </div>
+
+                                  </li>
+
+                            </ul>
+
+                      </div>
+
+              </section>
+
+
+
+              <section class="container">
+
+                        <div class="row">
+
+                              <h1>TV SERIES</h1>
+
+                              <ul class="movies-container row">
+
+                                    <li class="movie" v-for="serie in series">
+
+                                          <img :src="getImage(serie.poster_path)" alt="">
+                                          <h3>{{serie.name}}</h3>
+                                          <!-- <h3>{{movie.original_title}}</h3> -->
+
+                                          <div class="stars-container">
+
+                                                <ul class= "star-under">
+
+                                                      <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                                      <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                                      <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                                      <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                                      <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+
+                                                </ul>
+
+                                                <ul class="star-over" :style="starWidth(serie.vote_average)">
+
+                                                      <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                                      <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                                      <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                                      <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                                      <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+
+                                                </ul>
+
+                                          </div>
+
+                                          <span >{{getFlag(serie.original_language)}}</span>
+
+                                    </li>
+
+                              </ul>
+
+                        </div>
+
+                </section>
+
+              <!-- <h1>SERIES</h1>
+              <ul class="movies-container">
 
                       <li class="movie" v-for="serie in series">
 
@@ -106,11 +197,9 @@
                             <span >{{getFlag(serie.original_language)}}{{serie.original_language}}</span>
                       </li>
 
-              </ul>
-
-        </div>
-
+              </ul> -->
 
         <script src="main.js" charset="utf-8"></script>
+    </div>
     </body>
 </html>
