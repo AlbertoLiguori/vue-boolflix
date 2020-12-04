@@ -6,19 +6,60 @@ let myApp = new Vue({
   data:{
     API_KEY:"112af51c0e7271e4d4b8c857cffac064",
     movies:[],
+    currentMoviesPage:1,
+    currentSeriesPage:1,
     series:[],
-    query:"dragonball",
+    query:"",
   },
+
+  watch:{
+    currentMoviesPage:function(){
+      axios.get("https://api.themoviedb.org/3/search/movie",{
+        params:{
+          'api_key':this.API_KEY,
+          'query':this.query,
+          'page':this.currentMoviesPage,
+        }
+      })
+      .then((result)=> {
+
+        this.movies = result.data.results
+        console.log(this.movies)
+
+      });
+
+    },
+
+    currentSeriesPage:function(){
+      axios.get("https://api.themoviedb.org/3/search/tv",{
+        params:{
+          'api_key':this.API_KEY,
+          'query':this.query,
+          'page':this.currentSeriesPage,
+        }
+      })
+      .then((result)=> {
+
+        this.series = result.data.results
+        console.log(this.series)
+
+      });
+
+    },
+
+},
 
   methods:{
 
     getResult:function(){
 
+        this.currentMoviesPage=1;
+
         axios.get("https://api.themoviedb.org/3/search/movie",{
           params:{
             'api_key':this.API_KEY,
             'query':this.query,
-            // 'page':20,
+            'page':1,
           }
         })
         .then((result)=> {
@@ -31,9 +72,11 @@ let myApp = new Vue({
         axios.get("https://api.themoviedb.org/3/search/tv",{
           params:{
             'api_key':this.API_KEY,
-            'query':this.query
+            'query':this.query,
+            'page':1,
           }
         })
+
         .then((result)=> {
 
           this.series = result.data.results
@@ -61,6 +104,26 @@ let myApp = new Vue({
       }else{
         return "🏳️‍🌈"
       }
+    },
+
+    nextMoviesPage:function(){
+      this.currentMoviesPage++;
+      document.getElementById('movies-ul').scrollLeft = 0;
+    },
+
+    previousMoviesPage:function(){
+      this.currentMoviesPage--;
+      // document.getElementById('movie-ul').scrollTo({right:0});
+    },
+
+    nextSeriesPage:function(){
+      this.currentSeriesPage++;
+      document.getElementById('series-ul').scrollLeft = 0;
+    },
+
+    previousSeriesPage:function(){
+      this.currentSeriesPage--;
+      // document.getElementById('movie-ul').scrollTo({right:0});
     },
 
 

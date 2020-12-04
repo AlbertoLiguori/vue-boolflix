@@ -52,11 +52,13 @@
 
             <section class="container">
 
-                      <div class="row">
+                      <h1>MOVIES</h1>
 
-                            <h1>MOVIES</h1>
+                      <div class="row movie-section">
 
-                            <ul class="movies-container row">
+                            <div class="arrow-container" @click="previousMoviesPage()"> <i class="fa fa-angle-left" aria-hidden="true"> </i> </div>
+
+                            <ul id="movies-ul" class="movies-container row">
 
                                   <li class="movie" v-for="movie in movies">
 
@@ -108,6 +110,8 @@
 
                             </ul>
 
+                            <div class="arrow-container" @click="nextMoviesPage()"> <i class="fa fa-angle-right" aria-hidden="true"> </i> </div>
+
                       </div>
 
               </section>
@@ -116,11 +120,13 @@
 
               <section class="container">
 
-                        <div class="row">
+                        <h1>SERIES</h1>
 
-                              <h1>SERIES</h1>
+                        <div class="row movie-section">
 
-                              <ul class="movies-container row">
+                              <div class="arrow-container" @click="previousSeriesPage()"> <i class="fa fa-angle-left" aria-hidden="true"> </i> </div>
+
+                              <ul id="series-ul" class="movies-container row">
 
                                     <li class="movie" v-for="serie in series">
 
@@ -172,48 +178,12 @@
 
                               </ul>
 
+                              <div class="arrow-container" @click="nextSeriesPage()"> <i class="fa fa-angle-right" aria-hidden="true"> </i> </div>
+
                         </div>
 
                 </section>
 
-              <!-- <h1>SERIES</h1>
-              <ul class="movies-container">
-
-                      <li class="movie" v-for="serie in series">
-
-                            <img :src="getImage(serie.poster_path)" alt="">
-                            <h3>{{serie.name}}</h3>
-                            <h3>{{serie.original_name}}</h3>
-
-                            <div class="stars-container">
-
-                                  <ul class= "star-under">
-
-                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
-
-                                  </ul>
-
-                                  <ul class="star-over" :style="starWidth(serie.vote_average)">
-
-                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
-                                        <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
-
-                                  </ul>
-
-                            </div>
-
-                            <span class="year">{{serie.vote_average}}</span>
-                            <span >{{getFlag(serie.original_language)}}{{serie.original_language}}</span>
-                      </li>
-
-              </ul> -->
 
         <script src="main.js" charset="utf-8"></script>
     </div>
