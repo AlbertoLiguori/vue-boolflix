@@ -31,9 +31,13 @@
 
                   <div class="logo-container" >
 
-                        <img class="logo"src="boolflix-logo.png" alt="">
+                        <img class="boolflix-logo"src="boolflix-logo.png" alt="">
+                        <img class="logo easter-logo"src="bool-hub.png" alt="">
 
                   </div>
+
+
+
 
                   <div class="input-container">
 
@@ -71,8 +75,6 @@
                                               <h5>Original title: {{movie.original_title}}</h5>
 
                                               <p> Overview: {{movie.overview}}</p>
-
-                                              <span>Rating:</span>
 
                                               <div class="stars-container">
 
@@ -116,41 +118,55 @@
 
                         <div class="row">
 
-                              <h1>TV SERIES</h1>
+                              <h1>SERIES</h1>
 
                               <ul class="movies-container row">
 
                                     <li class="movie" v-for="serie in series">
 
-                                          <img :src="getImage(serie.poster_path)" alt="">
-                                          <h3>{{serie.name}}</h3>
-                                          <!-- <h3>{{movie.original_title}}</h3> -->
+                                          <div class="poster-container">
 
-                                          <div class="stars-container">
+                                              <img v-if="serie.poster_path" :src="getImage(serie.poster_path)" alt="">
 
-                                                <ul class= "star-under">
+                                              <div  v-else class="subst-img"> <h3>{{serie.name}}</h3> <i class="fa fa-picture-o" aria-hidden="true"></i></div>
 
-                                                      <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
-                                                      <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
-                                                      <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
-                                                      <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
-                                                      <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
-
-                                                </ul>
-
-                                                <ul class="star-over" :style="starWidth(serie.vote_average)">
-
-                                                      <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
-                                                      <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
-                                                      <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
-                                                      <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
-                                                      <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
-
-                                                </ul>
 
                                           </div>
 
-                                          <span >{{getFlag(serie.original_language)}}</span>
+                                          <div class="info-container">
+
+                                                <h3>{{serie.name}}</h3>
+                                                <h5>Original title: {{serie.original_name}}</h5>
+
+                                                <p> Overview: {{serie.overview}}</p>
+
+                                                <div class="stars-container">
+
+                                                      <ul class= "star-under">
+
+                                                            <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                                            <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                                            <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                                            <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+                                                            <li> <i class="fa fa-star-o" aria-hidden="true"></i> </li>
+
+                                                      </ul>
+
+                                                      <ul class="star-over" :style="starWidth(serie.vote_average)">
+
+                                                            <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                                            <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                                            <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                                            <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+                                                            <li> <i class="fa fa-star" aria-hidden="true"></i> </li>
+
+                                                      </ul>
+
+                                                </div>
+
+                                                <span >{{getFlag(serie.original_language)}}</span>
+
+                                          </div>
 
                                     </li>
 

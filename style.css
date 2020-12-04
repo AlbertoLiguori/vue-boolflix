@@ -45,20 +45,35 @@ header {
     background: #001533;
 }
 
+/* NAV */
 .nav-container{
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.logo{
+.boolflix-logo, .easter-logo{
   margin:10px;
   height:80px;
   border-radius: 10px;
 }
 
-.poster-container{
+/* LOGO */
+.easter-logo{
+  display:none;
+}
 
+.logo-container:hover .easter-logo{
+  display:block;
+}
+
+.logo-container:hover .boolflix-logo{
+  display:none;
+}
+
+
+/* MOVIE SECTION */
+.poster-container{
   background-color: black;
   height:500px;
   width:342px;
