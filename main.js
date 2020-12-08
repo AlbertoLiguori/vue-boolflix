@@ -4,15 +4,36 @@ let myApp = new Vue({
   el:"#root",
 
   data:{
+    // MY API
     API_KEY:"112af51c0e7271e4d4b8c857cffac064",
+
+    // REQUESTED MOVIES ARRAY
     movies:[],
-    currentMoviesPage:1,
-    currentSeriesPage:1,
+
+    // REQUESTED TV-SERIES ARRAY
     series:[],
+
+    // REQUESTED MOVIE CAST ARRAY
+    movieCast:[],
+
+    // REQUESTED TV-SERIES CAST ARRAY
+    serieCast:[],
+
+    //FILM PAGE COUNTER
+    currentMoviesPage:1,
+
+    //TV-SERIES PAGE COUNTER
+    currentSeriesPage:1,
+
+    //SEARCH QUERY FIELD
     query:"",
+
+
   },
 
   watch:{
+
+    //ALLOWS NAVIGATION THROUGH MOVIES
     currentMoviesPage:function(){
       axios.get("https://api.themoviedb.org/3/search/movie",{
         params:{
@@ -30,6 +51,7 @@ let myApp = new Vue({
 
     },
 
+    //ALLOWS NAVIGATION THROUGH TV-SERIES
     currentSeriesPage:function(){
       axios.get("https://api.themoviedb.org/3/search/tv",{
         params:{
@@ -49,8 +71,14 @@ let myApp = new Vue({
 
 },
 
+  computed:{
+
+  },
+
   methods:{
 
+    // SEND A REQUEST FOR MOVIE AND TV SERIES
+    // REQUESTED DATA ARE STORED IN DATA (movies and series)
     getResult:function(){
 
         this.currentMoviesPage=1;
@@ -60,6 +88,7 @@ let myApp = new Vue({
             'api_key':this.API_KEY,
             'query':this.query,
             'page':1,
+
           }
         })
         .then((result)=> {
@@ -89,8 +118,6 @@ let myApp = new Vue({
       return "https://image.tmdb.org/t/p/w342/" + blabla
     },
 
-
-
     starWidth:function(num){
       return {width: (num*10) +'%'};
     },
@@ -113,7 +140,6 @@ let myApp = new Vue({
 
     previousMoviesPage:function(){
       this.currentMoviesPage--;
-      // document.getElementById('movie-ul').scrollTo({right:0});
     },
 
     nextSeriesPage:function(){
@@ -126,6 +152,68 @@ let myApp = new Vue({
       // document.getElementById('movie-ul').scrollTo({right:0});
     },
 
+    getGenre:function(anArray){
+
+      let genreArray=[];
+
+      anArray.forEach(function(element){
+
+         let genre = genresObjArray.find(function(el){
+           return element == el.id
+         });
+
+         genreArray.push(genre.name);
+      });
+
+      return genreArray
+
+    },
+
+    //CALL FOR MOVIE CAST
+    getMovieCast:function(id){
+      axios.get("https://api.themoviedb.org/3/movie/"+ id + "/credits",{
+        params:{
+          'api_key':this.API_KEY,
+        }
+      })
+
+      .then((result)=> {
+        let castArray=[];
+        for (i = 0; i<5; i++)
+        {
+          if(result.data.cast[i]){
+          castArray.push(result.data.cast[i].name)
+          }
+        }
+
+        this.movieCast= castArray
+        console.log(this.movieCast)
+      });
+
+    },
+
+    //CALL FOR TV SERIES CAST
+    getSeriesCast:function(id){
+      axios.get("https://api.themoviedb.org/3/tv/"+ id + "/credits",{
+        params:{
+          'api_key':this.API_KEY,
+        }
+      })
+
+      .then((result)=> {
+        let castArray=[];
+        for (i = 0; i<5; i++)
+        {
+          if(result.data.cast[i]){
+          castArray.push(result.data.cast[i].name)
+          }
+        }
+
+        this.serieCast= castArray
+        console.log(this.serieCast)
+      });
+
+    },
 
  },
 

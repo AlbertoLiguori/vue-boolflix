@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>boolflix official</title>
+        <title>boolflix official 2</title>
         <!-- LINK TO FONTAWESOME -->
         <script src="https://use.fontawesome.com/200c567139.js"></script>
 
@@ -50,6 +50,7 @@
 
         </header>
 
+            <!-- MOVIES SECTION -->
             <section class="container">
 
                       <h1>MOVIES</h1>
@@ -60,24 +61,40 @@
 
                             <ul id="movies-ul" class="movies-container row">
 
-                                  <li class="movie" v-for="movie in movies">
+                                  <li class="movie" v-for="(movie, index) in movies">
 
+                                        <!-- COPERTINA -->
                                         <div class="poster-container">
 
                                             <img v-if="movie.poster_path" :src="getImage(movie.poster_path)" alt="">
 
                                             <div  v-else class="subst-img"> <h3>{{movie.title}}</h3> <i class="fa fa-picture-o" aria-hidden="true"></i></div>
 
-
                                         </div>
 
-                                        <div class="info-container">
+                                        <!-- FILM INFOS -->
+                                        <div v-on:mouseover="getMovieCast(movie.id)"class="info-container">
 
                                               <h3>{{movie.title}}</h3>
                                               <h5>Original title: {{movie.original_title}}</h5>
 
                                               <p> Overview: {{movie.overview}}</p>
 
+                                              <!-- GENRE LIST -->
+                                              <ul class="genreList">GENRES:
+
+                                                  <li v-for="genre in getGenre(movie.genre_ids)"> {{genre}}, </li>
+
+                                              </ul>
+
+                                              <!-- CAST LIST -->
+                                              <ul class ="castList"> CAST:
+
+                                                  <li v-for="element in movieCast"> {{element}}, </li>
+
+                                              </ul>
+
+                                              <!-- STAR RATING -->
                                               <div class="stars-container">
 
                                                     <ul class= "star-under">
@@ -102,6 +119,7 @@
 
                                               </div>
 
+                                              <!-- LANGUAGE -->
                                               <span >{{getFlag(movie.original_language)}}</span>
 
                                         </div>
@@ -117,7 +135,7 @@
               </section>
 
 
-
+              <!-- TV SERIES SECTION -->
               <section class="container">
 
                         <h1>SERIES</h1>
@@ -139,12 +157,26 @@
 
                                           </div>
 
-                                          <div class="info-container">
+                                          <div class="info-container" v-on:mouseover="getSeriesCast(serie.id)"class="info-container">
 
                                                 <h3>{{serie.name}}</h3>
                                                 <h5>Original title: {{serie.original_name}}</h5>
 
                                                 <p> Overview: {{serie.overview}}</p>
+
+                                                <!-- GENRE LIST -->
+                                                <ul class="genreList">GENRES:
+
+                                                    <li v-for="ciccio in getGenre(serie.genre_ids)"> {{ciccio}}, </li>
+
+                                                </ul>
+
+                                                <!-- CAST LIST -->
+                                                <ul class ="castList"> CAST:
+
+                                                    <li v-for="element in serieCast"> {{element}}, </li>
+
+                                                </ul>
 
                                                 <div class="stars-container">
 

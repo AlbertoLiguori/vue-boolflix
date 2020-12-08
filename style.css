@@ -85,7 +85,6 @@ header {
   width:342px;
   border:1px solid white;
   overflow: hidden;
-  /* position: relative; */
 }
 
 .info-container{
@@ -124,10 +123,6 @@ li:hover .poster-container{
 
 .movie{
   margin:20px;
-  /* display: flex; */
-  /* flex-direction: column; */
-  /* justify-content: center; */
-  /* text-align: center; */
   position:relative;
 }
 
@@ -157,5 +152,15 @@ li:hover .poster-container{
   left:0;
   flex-wrap: nowrap;
   overflow: hidden;
-  /* width:65%; */
+
+}
+
+/* GENRE & CAST LISTS */
+
+.castList, .genreList{
+  list-style: none;
+}
+
+.castList li, .genreList li{
+  display: inline;
 }
